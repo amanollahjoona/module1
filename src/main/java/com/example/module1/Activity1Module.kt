@@ -29,5 +29,11 @@ class Activity1Module : AppCompatActivity() {
             binding.txt1.text = (count1 + count2).toString()
         }
 
+
+
+    }
+
+    public  fun sum(a:Int, b:Int): Int {
+        return (a+b)
     }
 }

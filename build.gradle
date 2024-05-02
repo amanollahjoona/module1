@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -46,4 +47,18 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 //sdb
     implementation 'com.intuit.sdp:sdp-android:1.1.0'
+}
+// we need this code only for maven local publish script
+afterEvaluate {
+        publishing {
+            publications {
+                release(MavenPublication) {
+                    from components.release
+
+                    groupId = 'com.github.amanollahjoona'
+                    artifactId = 'module1'
+                    version = 'v1.0.0'
+                   }
+                }
+        }
 }
